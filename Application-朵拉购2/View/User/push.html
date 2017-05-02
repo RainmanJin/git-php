@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关于我们</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth >= 640) {
+							docEl.style.fontSize = '100px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+						}
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			ul {
+				width: 90%;
+				margin: 0 auto;
+				margin-top: 0.6rem;
+				font-family: arial;
+			}
+			li {
+				list-style: none;
+				font-size: 0.26rem;
+				line-height: 0.45rem;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="wrap">
+			<li>亲爱的用户：</li>
+			<li style="text-indent: 2em;">感谢您对朵拉购的支持与关注！</li>
+			<li style="text-indent: 2em;">为了给您提供更加优质的服务体验，在朵拉购经过3个月的运行后，我们拟定于2017年3月24日（周五）迎来喜大普奔全新改版：</li>
+			<li><span style="font-size: 0.3rem;color: red;font-weight: 600;">准入门槛低</span>：由500g能量1棵树，调整为100g能量1棵树。现每棵树最高返99个种子，总收益不变，获得门槛更低！</li>
+			<li><span style="font-size: 0.3rem;color: red;font-weight: 600;">正品有保障</span>：优化与合作伙伴京东商城的对接系统，正品有保障，假一赔三、购物更快更省！</li>
+			<li><span style="font-size: 0.3rem;color: red;font-weight: 600;">邀请有好礼</span>：邀请好友得10个奖励种子，好友最高得500元红包；邀请越多赚更多，上不封顶！</li>
+			<li><span  style="font-size: 0.3rem;color: red;font-weight: 600;">种子转余额</span>：普通与奖励种子均可转入余额，直接用于支付，收益回报更快、更便捷！</li>
+			<li style="text-indent: 2em;">各位朵友们记得关注朵拉购后续官方通知，新版上架后第一时间更新APP，相信您会有意想不到的收获哦~</li>
+			<li style="text-indent: 2em;">Ps.如果没有及时更新，我的幸运树界面会显示500g，实际按照100g计算，数量也会更改，但是不影响每日激励数量。</li>
+			<li style="text-align: right;">浙江朵宝网络科技有限公司</li>
+			<li style="text-align: right;">2017年3月23日</li>
+		</ul>
+	</body>
+</html>

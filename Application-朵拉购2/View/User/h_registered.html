@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="/layer/skin/layer.css" />
+    <meta name="Author" content="朵拉购" />
+    <meta name="keywords" content="朵拉购" />
+    <meta name="description" content="朵拉购" />
+    <title>注册</title>
+    <!-- 固定的JS文件说明 -->
+    <script type="text/javascript">
+    new function (){
+        var _self = this;
+        _self.width = 750;//设置默认最大宽度
+        _self.fontSize = 100;//默认字体大小
+        _self.widthProportion = function(){
+            var p = (document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+            return p>1?1:p<0.4?0.5:p;
+        };//判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+        _self.changePage = function(){
+            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+        }//修改根元素html的font-size的植
+        _self.changePage();
+        window.addEventListener('resize',function(){
+            _self.changePage();
+        },false);//侦听屏幕宽度变化
+    };
+</script>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+</head>
+<body style="background: #f2f2f2;">
+    <dl class="info">
+        <dd>
+            <fieldset class="info-fieldset">
+                <label class="info-label info-label-tjrname">推荐人</label>
+                <span class="info-span">{$info.realname}</span>
+            </fieldset>
+        </dd>
+        <dd>
+            <fieldset class="info-fieldset">
+                <label class="info-label info-label-tjrphone">推荐人手机号</label>
+                <span class="info-span" id='t_mobile'>{$info.mobile}</span>
+            </fieldset>
+        </dd>
+        <dd>
+            <fieldset class="info-fieldset">
+                <label class="info-label info-label-name">姓名</label>
+                <input id="name" class="info-input info-input-name" placeholder="请输入您的真实姓名" type="text" value=""></fieldset>
+        </dd>
+        <dd>
+            <fieldset class="info-fieldset">
+                <label class="info-label info-label-phone">手机号</label>
+                <input id="mobile" class="info-input info-input-phone" placeholder="请输入您的手机号" type="text" value=""></fieldset>
+        </dd>
+        <dd>
+            <fieldset class="info-fieldset">
+                <label class="info-label info-label-code">验证码</label>
+                <input id="code" class="info-input-code" placeholder="请输入验证码" type="text" value="">
+                <button id="getCode">获取验证码</button>
+            </fieldset>
+        </dd>
+        <dd>
+            <fieldset class="info-fieldset">
+                <label class="info-label info-label-mm">登录密码</label>
+                <input id="password" class="info-input info-input-mm" placeholder="请设置您的登录密码" type="password" value=""></fieldset>
+        </dd>
+        <dd>
+            <fieldset class="info-fieldset">
+                <label class="info-label info-label-qrmm">确认密码</label>
+                <input id="password1" class="info-input info-input-qrmm" placeholder="请再次输入您的登录密码" type="password" value=""></fieldset>
+        </dd>
+    </dl>
+    <button class="end-btn"><a href="#" class="end-btn-sure">完成</a></button>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="/layer/layer.js"></script>
+    <script type="text/javascript">
+      $('.end-btn-sure').on('click',function(){
+        var t_mobile = $('#t_mobile').html();
+        var name = $('#name').val();
+        var mobile = $('#mobile').val();
+        var code = $('#code').val();
+        var password = $('#password').val();
+        var password1 = $('#password1').val();
+        if(!name){
+            layer.msg('请输入您的真实姓名');
+            return false;
+        }
+        if(name.length > 6){
+            layer.msg('请输入正确的姓名');
+            return false;
+          }
+        if(!mobile){
+            layer.msg('请输入您的手机号');
+            return false;
+        }
+        if(!code){
+            layer.msg('请输入验证码');
+            return false;
+        }
+        if(!password){
+            layer.msg('请设置您的登录密码');
+            return false;
+        }
+        if(!password1){
+            layer.msg('请再次输入您的登录密码');
+            return false;
+        }
+        if(password != password1){
+            layer.msg('请再次输入您的登录密码');
+            return false;
+        }
+        if(password.length < 6){
+            layer.msg('密码长度不能小于6位');
+            return false;
+        }
+        if(password.length > 20){
+            layer.msg('密码长度不能大于20位');
+            return false;
+        }
+        $.post('?c=user&a=h_registered',{'t_mobile':t_mobile,'name':name,'mobile':mobile,'code':code,'password':password,'password1':password1},function(data){
+            if(data.code==1){
+                location.href = "?c=user&a=succful";
+            }else if(data.code==0){
+                layer.msg(data.msg);
+            }
+        },'json');
+    })
+    </script>
+</body>
+</html>

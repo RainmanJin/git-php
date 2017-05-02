@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="Author" content="朵拉购E卡使用说明" />
+    <meta name="keywords" content="朵拉购E卡使用说明" />
+    <meta name="description" content="朵拉购E卡使用说明" />
+    <title>朵拉购E卡使用说明</title>
+    <!-- 固定的JS文件说明 -->
+    <script type="text/javascript">
+    new function (){
+        var _self = this;
+        _self.width = 768;//设置默认最大宽度
+        _self.fontSize = 100;//默认字体大小
+        _self.widthProportion = function(){
+            var p = (document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+            return p>1?1:p<0.4?0.5:p;
+        };//判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+        _self.changePage = function(){
+            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+        }//修改根元素html的font-size的植
+        _self.changePage();
+        window.addEventListener('resize',function(){
+            _self.changePage();
+        },false);//侦听屏幕宽度变化
+    };
+</script>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="help_content">
+        <h1>朵拉购E卡使用说明</h1>
+        <p>
+            1、绑定E卡后需要设置独立的支付密码方卡消费，每一张卡有自己独立的支付密码，不同于商城的支付密码。
+        </p>
+        <p>
+            2、使用E卡支付，需输入账号与密码。
+        </p>
+        <p>
+            3、消费金额计入相应系列幸运树的消费累计，计入绑定人的账号。
+        </p>
+        <p>
+            4、卡上余额为0时，可删除，删除后，卡号失效。
+        </p>
+        <p>
+            5、E卡与余额之间可以互相转账。
+        </p>
+        <p>
+            6、本卡为不记名卡，不计息，不兑换现金。
+        </p>
+        <p>
+            7、本卡仅限在朵拉购APP商城及线下朵拉购标识的商家消费时使用。
+        </p>
+        <p>
+            8、本卡最终解释权浙江朵拉网络科技有限公司所有。
+        </p>
+    </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/TouchSlide.1.1.js"></script>
+</body>
+</html>

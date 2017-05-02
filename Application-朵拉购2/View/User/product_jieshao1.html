@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="css/like.css"/>
+    <style>
+    .aa img {width: 100%;display: block;height: auto;};
+    .tdTitle {width: 50px};
+    </style>
+    <title></title>
+    <!-- 固定的JS文件说明 -->
+    <script type="text/javascript">
+    new function (){
+        var _self = this;
+        _self.width = 768;//设置默认最大宽度
+        _self.fontSize = 100;//默认字体大小
+        _self.widthProportion = function(){
+            var p = (document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+            return p>1?1:p<0.4?0.5:p;
+        };//判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+        _self.changePage = function(){
+            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+        }//修改根元素html的font-size的植
+        _self.changePage();
+        window.addEventListener('resize',function(){
+            _self.changePage();
+        },false);//侦听屏幕宽度变化
+    };
+</script>
+    <!-- <link href="css/base.css" rel="stylesheet" /> -->
+    <!-- <link href="css/common.css" rel="stylesheet" /> -->
+</head>
+<body style='font-size: 0.14rem'>
+    <div class="aa" style="width:100%">
+    <eq name='data.type' value='1'>
+        {$data['content']}
+    <else/>
+        <volist name='data.content' id='co'>
+        <img src='{$co.img_url}'>
+        </volist>
+    </eq>
+        </div>
+    <div class="like">
+            <div class="like_title">
+                <img src="images/like.png"/>
+            </div>
+            <ul class="like_product">
+                <volist name='p_list' id='li'>
+                    <a href="haleyaction://productDetail?product_id={$li.id}">
+                        <li>                       
+                            <div class="like_product_img">
+                                <img src="{$li.thumb_url}" alt="" />
+                            </div>
+                            <div class="like_product_name">
+                                {$li.title}
+                            </div>
+                            <div class="like_product_price">
+                                <p><span style="font-size: 0.28rem;">￥</span>{$li.discount_price}</p>
+                                <!-- <p><img src="images/shandian.png"/>{$li.series}</p> -->
+                                <eq name = 'li.series' value='25%'>
+                                    <img src="images/25.png"/>
+                                </eq>
+                                <eq name = 'li.series' value='50%'>
+                                    <img src="images/50.png"/>
+                                </eq>
+                                <eq name = 'li.series' value='100%'>
+                                    <img src="images/100.png"/>
+                                </eq>
+                                
+                            </div>                         
+                        </li>
+                     </a>
+                </volist>
+            </ul>
+        </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!-- <script src="js/common.js"></script> -->
+    <script src="js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript">
+        $('br').remove();
+    </script>
+</body>
+</html>

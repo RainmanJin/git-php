@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>让嘴巴去旅行</title>
+		<link rel="stylesheet" type="text/css" href="zhuanti2/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="zhuanti2/css/index.css" />
+		<script type="text/javascript" charset="utf-8">
+			new function() {
+				var _self = this;
+				_self.width = 768; //设置默认最大宽度
+				_self.fontSize = 100; //默认字体大小
+				_self.widthProportion = function() {
+					var p = (document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth) / _self.width;
+					return p > 1 ? 1 : p < 0.4 ? 0.5 : p;
+				}; //判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+				_self.changePage = function() {
+					document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + _self.widthProportion() * _self.fontSize + "px !important");
+				} //修改根元素html的font-size的植
+				_self.changePage();
+				window.addEventListener('resize', function() {
+					_self.changePage();
+				}, false); //侦听屏幕宽度变化
+			};
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="swiper-container" id="backTop">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="#zhongguo_products"><img src="zhuanti2/img/zhongguo.png" /></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#xinmatai_products"><img src="zhuanti2/img/xinmatai.png" /></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#gangaotai_products"><img src="zhuanti2/img/gangaotai.png" /></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#oumei_products"><img src="zhuanti2/img/oumei.png" /></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#other_products"><img src="zhuanti2/img/other.png" /></a>
+					</div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="menu1" id="silder1">
+				<ul id="menu1" class="nav">
+					<li class="active">
+						<a href="#zhongguo_products" class="scrollto">中国馆</a>
+					</li>
+					<li>
+						<a href="#xinmatai_products" class="scrollto">新马泰馆</a>
+					</li>
+					<li>
+						<a href="#gangaotai_products" class="scrollto">港澳台馆</a>
+					</li>
+					<li>
+						<a href="#oumei_products" class="scrollto">欧美馆</a>
+					</li>
+					<li>
+						<a href="#other_products" class="scrollto">更多精选</a>
+					</li>
+				</ul>
+			</div>
+			<div class="menu2" id="silder2" style="display: none;">
+				<ul id="menu2" class="nav">
+					<li class="active">
+						<a href="#zhongguo_products" class="scrollto">中国馆</a>
+					</li>
+					<li>
+						<a href="#xinmatai_products" class="scrollto">新马泰馆</a>
+					</li>
+					<li>
+						<a href="#gangaotai_products" class="scrollto">港澳台馆</a>
+					</li>
+					<li>
+						<a href="#oumei_products" class="scrollto">欧美馆</a>
+					</li>
+					<li>
+						<a href="#other_products" class="scrollto">更多精选</a>
+					</li>
+				</ul>
+			</div>
+			<div class="products">
+				<div id="zhongguo_products">
+					<div class="nav_img">
+						<img src="zhuanti2/img/nav1.png" />
+					</div>
+					<ul class="zhongguo_products">
+					<volist name='price_zz' id='data'>
+						<a href="haleyaction://productDetail?product_id={$data.product_id}">
+							<li>
+								<div class="product_img">
+									<img src="{$data.thumb_url}" alt="" />
+								</div>
+								<div class="product_name">
+									{$data.title}
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>{$data.discount_price}</p>
+								</div>
+							</li>
+						</a>
+					</volist>	
+						<!-- <a href="haleyaction://productDetail?product_id=2062">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t2758/320/210631677/311429/342ed173/5707f052N06410725.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】七彩云南庆沣祥 茶叶 普洱茶 熟茶饼 陈香饼6年陈（黄字）礼盒装 357g
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=12015">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t2812/317/2775089652/616726/7e3fbffd/57715320N33ebbb6c.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】海南特产 南国椰香薄饼特惠装甜味80g*3袋
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=17882">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t3925/317/71409821/506208/92831397/583b91a9N4b203c76.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】内蒙古蒙都 清真即食 羊蝎子原味1200g（新老包装随机发货）  
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=3396">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t3088/217/851771540/231778/7b88efc2/57bfdd30N007b0e00.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】内蒙古蒙都 休闲零食 手撕风干牛肉干原味158g  
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=814">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t2872/211/4147613552/185157/b4c0eb4b/57ac2d42N4549f3d7.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】方家铺子 红枣 新疆特产 和田骏枣五星 500g
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=1549">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t1123/347/1376229107/177597/24ef775d/559de3dcN15ca638e.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】黄胜记 厦门鼓浪屿特产 肉干肉脯 零食 猪肉脯165g
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=21327">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/g14/M02/06/1B/rBEhVVHuGlwIAAAAAAHEiQ435Y0AABV0QGXtOkAAcSh391.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】武汉特产 周黑鸭 休闲零食卤味 鸭脖210g*2袋
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=1262">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/g14/M04/1B/1A/rBEhVVMz2ogIAAAAAAIXub-R9BoAAK7CgCD1fgAAhfR672.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】四川特产 休闲零食 棒棒娃天府火爆麻辣牛肉干98g（新老包装随机发放）
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=17290">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t3166/66/235440408/155323/3bba849b/57ac2c1aNaafa6936.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】方家铺子 宁夏特产 中宁免洗枸杞 特优枸杞240g（6g*40袋）  
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a> -->
+					</ul>
+				</div>
+				<div id="xinmatai_products">
+					<div class="nav_img">
+						<img src="zhuanti2/img/nav2.png" />
+					</div>
+					<ul class="xinmatai_products">
+					<volist name='price_xmt' id='data'>
+						<a href="haleyaction://productDetail?product_id={$data.product_id}">
+							<li>
+								<div class="product_img">
+									<img src="{$data.thumb_url}" alt="" />
+								</div>
+								<div class="product_name">
+									{$data.title}
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>{$data.discount_price}</p>
+								</div>
+							</li>
+						</a>
+					</volist>	
+<!-- 						<a href="haleyaction://productDetail?product_id=11257">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t3472/273/1421982387/179314/c178cc25/58259dfeN6b5b7976.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】泰国进口 休闲零食 小老板 调味海苔 番茄味 32g/袋（新老包装随机发货）
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=11880">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/g10/M00/00/17/rBEQWFEA1xwIAAAAAAFVMENA2joAAAJFQEMrFEAAVVI775.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】马来西亚进口Sumaco素玛哥牌山竹味果冻（含椰果）660g 
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=968">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t1330/144/462520387/97458/a242372d/557ba0e5N831be40a.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】马来西亚进口 卡司诺（Klassno）卡布奇诺原味咖啡 120g 
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=17873">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/g13/M05/04/12/rBEhVFIAx5UIAAAAAAJisnfUcHUAABycAAITBEAAmLK383.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】泰国 yumyum养养牌 冬阴功方便面(酸辣虾味汤面)杯面 70g 
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=20108">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t1888/188/2368311109/191208/28739f2c/56d80e41N963a7ef7.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】西域美农 零食果干金枕头榴莲片冻干泰国榴莲干35g
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=22683">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t2680/191/326799134/493004/fd7fee/570e34feN992b6da3.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】洽洽 蜜饯果干 芒果干泰国风味 零食小吃果干果脯100g/袋
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=16072">
+							<li>
+								<div class="product_img">
+									<img src="http://cms.dorago.cn:80/upload/imgs/20170306/1488780613184_957.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】新加坡 CHNG KEE'S 庄记 叁芭蒜茸 辣椒酱 240ml   
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=22244">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t379/273/479010102/195612/b6003215/541ffae9N47cb529c.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】泰国进口 京都念慈菴枇杷糖 60g 
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=19378">
+							<li>
+								<div class="product_img">
+									<img src="http://img13.360buyimg.com/n3/jfs/t160/53/1497386195/110448/df91f2bd/53b12fbcN342de9f9.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】马来西亚进口 一百份 什果果汁软糖 320g
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=10139">
+							<li>
+								<div class="product_img">
+									<img src="http://cms.dorago.cn:80/upload/imgs/20170227/1488159402231_129.jpg" alt="" />
+								</div>
+								<div class="product_name">
+									【京东超市】马来西亚 AYAM BRAND雄鸡标辣椒特级初榨橄榄油浸沙丁鱼 120g 
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a> -->
+					</ul>
+				</div>
+				<div id="gangaotai_products">
+					<div class="nav_img">
+						<img src="zhuanti2/img/nav4.png" />
+					</div>
+					<ul class="gangaotai_products">
+					<volist name='price_gat' id='data'>
+						<a href="haleyaction://productDetail?product_id={$data.product_id}">
+							<li>
+								<div class="product_img">
+									<img src="{$data.thumb_url}" alt="" />
+								</div>
+								<div class="product_name">
+									{$data.title}
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>{$data.discount_price}</p>
+								</div>
+							</li>
+						</a>
+					</volist>	
+<!-- 						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									4非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a> -->
+					</ul>
+				</div>
+				<div id="oumei_products">
+					<div class="nav_img">
+						<img src="zhuanti2/img/nav5.png" />
+					</div>
+					<ul class="oumei_products">
+					<volist name='price_om' id='data'>
+						<a href="haleyaction://productDetail?product_id={$data.product_id}">
+							<li>
+								<div class="product_img">
+									<img src="{$data.thumb_url}" alt="" />
+								</div>
+								<div class="product_name">
+									{$data.title}
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>{$data.discount_price}</p>
+								</div>
+							</li>
+						</a>
+					</volist>	
+<!-- 						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									5非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a> -->
+					</ul>
+				</div>
+				<div id="other_products">
+					<div class="nav_img">
+						<img src="zhuanti2/img/nav3.png" />
+					</div>
+					<ul class="other_products">
+					<volist name='price_gd' id='data'>
+						<a href="haleyaction://productDetail?product_id={$data.product_id}">
+							<li>
+								<div class="product_img">
+									<img src="{$data.thumb_url}" alt="" />
+								</div>
+								<div class="product_name">
+									{$data.title}
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>{$data.discount_price}</p>
+								</div>
+							</li>
+						</a>
+					</volist>	
+<!-- 						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									3非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a>
+						<a href="haleyaction://productDetail?product_id=215465649">
+							<li>
+								<div class="product_img">
+									<img src="zhuanti2/img/products.png" alt="" />
+								</div>
+								<div class="product_name">
+									非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活非转基因进口食用油 纯天然绿色 无污染 带给您健康的生活
+								</div>
+								<div class="product_price">
+									<p><span style="font-size: 0.28rem;">￥</span>199.90</p>
+								</div>
+							</li>
+						</a> -->
+					</ul>
+				</div>
+			</div>
+			<div class="backTop" style="display: none;">
+				<a href="#backTop"><img src="zhuanti2/img/jiantou.png" /></a>
+			</div>
+			<div class="redPacket" style="display: none;">
+				<img src="zhuanti2/img/hongbaoBg.png" class="redPacket_img1" />
+				<p id="redPacket_money"><span style="font-weight: 600;">10</span>&nbsp;<span style="font-size: 0.5rem;">元</span></p>
+				<input type="hidden" name="" id="hb_id" value="">
+				<input type="number" name="" id="phoneNum" value="" placeholder="请输入手机号" />
+				<p class="console" style="visibility: hidden;">提示：请输入正确的手机号</p>
+				<div class="get_code">
+					<input type="number" id="code" value="" placeholder="请输入验证码" />
+					<button id="get_code">获取验证码</button>
+				</div>
+				<p class="console2" style="visibility: hidden;">提示：验证码错误!</p>
+				<!-- <p class="console4" style="visibility: hidden;">提示：您已经领取过红包了!</p> -->
+				<p class="console3">红包满100元可使用</p>
+				<p id="getAndUse">立即领取并使用</p>
+				<div class="popup4" style="display: none;">
+					<img src="redpacket/img/2_popup4.png"/>
+				</div>
+			</div>
+			<div class="redPacketBtn">
+				<img src="zhuanti2/img/hongbao.png" />
+			</div>
+			<div class="bg" style="display: none;"></div>
+		</div>
+	</body>
+	<script src="zhuanti2/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="zhuanti2/js/jquery.scrollTo.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="zhuanti2/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="zhuanti2/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="zhuanti2/js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		//倒计时
+		var wait = 60;
+
+		function time(btn) {
+			if(wait == 0) {
+				btn.css("background-color", "#ffd65a").css("color", "#e8324d").html("获取验证码");
+				btn.removeAttr("disabled");
+				wait = 10;
+			} else {
+				btn.css("background-color", "#ddd").css("color", "#888").css("disabled", "true").html(wait + "s");
+				btn.attr("disabled", "true");
+				wait--;
+				setTimeout(function() {
+					time(btn);
+				}, 1000);
+			}
+		}
+		$('#get_code').on('click', function() {
+			var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+			mobiles = $('#phoneNum').val();
+			if(!mobiles) {
+				// layer.msg('请输入您的手机号');
+				$(".console").css("visibility", "visible").html("提示：请输入手机号!");
+				return false;
+			}
+			if(!myreg.test(mobiles)) {
+				// layer.msg('请输入正确的手机号码');  
+				$(".console").css("visibility", "visible").html("提示：请输入正确的手机号!");
+				return false;
+			}
+			$(".console").css("visibility", "hidden");
+			
+			$.get('?c=user&a=getCode1',{'mobile':mobiles},function(data){
+            	if(data.code==1){
+            		time($("#get_code"));
+            	}else if(data.code==0){
+                //获取失败
+            }
+        },'json');
+		})
+
+		$(function() {
+			$('#getAndUse').on('click', function() {
+				var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+				mobiles = $('#phoneNum').val();
+				if(!mobiles) {
+					// layer.msg('请输入您的手机号');
+					$(".console").css("visibility", "visible").html("提示：请输入手机号!");
+					return false;
+				}
+				if(!myreg.test(mobiles)) {
+					// layer.msg('请输入正确的手机号码');  
+					$(".console").css("visibility", "visible").html("提示：请输入正确的手机号!");
+					return false;
+				}
+
+				var mobiles = $('#phoneNum').val();
+				var yzm = $('#code').val();
+				var hb_id = $('#hb_id').val();
+				$.get('?c=zhuanti2&a=check', { 'mobiles': mobiles, 'yzm': yzm, 'hb_id': hb_id }, function(data) {
+					if(data.code == 3) {
+						//验证码错误
+						$(".console2").css("visibility", "visible");
+					}else if(data.code == 1){
+						//红包个数大于2,不能领取
+						$(".console2") .html('提示：您已经领取过红包了!');
+						$(".console2").css("visibility", "visible");
+					}else if(data.code == 2) {
+						//领取成功
+						$(".console2").css("visibility", "hidden");
+						// $(".redPacket").css("display", "none");
+						$(".popup4").css("display", "block");
+						setTimeout(function() {
+							$(".popup4").css("display", "none");
+							$(".redPacket").css("display", "none");
+							$(".bg").css("display", "none");
+						}, 3000)
+					}
+				}, 'json');
+			})
+		})
+
+		// function jump() {
+		// 	wwindow.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.duolabao";
+		// 	$(".popup1").css("display", "none");
+		// 	$(".popup2").css("display", "none");
+		// 	$(".popup3").css("display", "none");
+		// 	$(".popupBg").css("display", "none");
+		// }
+
+		// function jump1() {
+		// 	window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.duolabao";
+		// 	$(".popup1").css("display", "none");
+		// 	$(".popup2").css("display", "none");
+		// 	$(".popup3").css("display", "none");
+		// 	$(".popupBg").css("display", "none");
+		// }
+
+		// function jump2() {
+		// 	window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.duolabao";
+		// 	$(".popup1").css("display", "none");
+		// 	$(".popup2").css("display", "none");
+		// 	$(".popup3").css("display", "none");
+		// 	$(".popupBg").css("display", "none");
+		// }
+	</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="朵拉分享">
+    <meta name="description" content="尊敬的客户：鉴于您的尊贵身份，您的朋友XXX推荐您加入朵拉私人管家VIP俱乐部！">
+    <meta content="initial-scale=1,width=device-width, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>朵拉分享</title>
+    <link rel="stylesheet" href="share/css/base.css"/>
+    <link rel="stylesheet" href="share/css/m-common.css"/>
+    <link rel="stylesheet" href="share/css/ui-query-b.css">
+    <link rel="stylesheet" href="share/css/index.css"/>
+    <link rel="stylesheet" href="/layer/skin/layer.css" />
+</head>
+<body>
+    <div class="wrap">
+        <dl>
+            <label>手机号</label>
+            <input type="text" id='mobile' placeholder="请输入您的手机号"></dl>
+        <button class="next-btn">
+            <a  class="next-btn-sure">下一步</a>
+        </button>
+    </div>
+    <script src="share/js/jquery-1.9.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
+    <script>
+        $('.next-btn-sure').on('click',function(){
+            mobile = $('#mobile').val();
+            var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+             if(!mobile){
+                layer.msg('请输入您的手机号');
+                return false;
+            }
+            if(!myreg.test(mobile)){
+                layer.msg('请输入正确的手机号码');
+                return false;
+            }
+            window.location.href="http://test.dorabox.net/?c=share&a=yzm&tj={$Think.get.mobile}&mobile="+mobile;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>朵拉宝商家接口</title>
+<link rel="stylesheet" href="resource/style.css" />
+<script type="text/javascript" src="resource/main.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="resource/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="resource/scrolltopcontrol.js"></script>
+</head>
+<body>
+<div class="container">
+  <p>
+  <div class="toc">
+    <div class="toc">
+      <ul>
+        <li><a href="#朵拉宝商家app接口文档">朵拉宝商家APP接口文档</a>
+          <ul>
+            <li><a href="#返回码说明">返回码说明</a>
+              <ul>
+                <li><a href="#登录">1.登录</a></li>
+                <li><a href="#退出登录">2.退出登录</a></li>
+                <li><a href="#忘记密码">3.忘记密码</a></li>
+                <li><a href="#我的">4.我的</a></li>
+                <li><a href="#消息列表">5.消息列表</a></li>
+                <li><a href="#修改头像">6.修改头像</a></li>
+                <li><a href="#上传极光Id">7.上传极光Id</a></li>
+                <li><a href="#设置支付密码">8.设置支付密码</a></li>
+                <li><a href="#修改支付密码">9.修改支付密码</a></li>
+                <li><a href="#忘记支付密码">10.忘记支付密码</a></li>
+                <li><a href="#修改密码">11.修改密码</a></li>
+                <li><a href="#我的店铺">12.我的店铺</a></li>
+                <li><a href="#收益首页">13.收益首页</a></li>
+                <li><a href="#提现数据">14.提现数据</a></li>
+                <li><a href="#提现记录">15.提现记录</a></li>
+                <li><a href="#申请提现">16.申请提现</a></li>
+                <li><a href="#我的幸运树">17.我的幸运树</a></li>
+                <li><a href="#回购数据">18.回购数据</a></li>
+                <li><a href="#回购记录">19.回购记录</a></li>
+                <li><a href="#申请回购">20.申请回购</a></li>
+                <li><a href="#添加银行卡">21.添加银行卡</a></li>
+                <li><a href="#我的种子">22.我的种子</a></li>
+                <li><a href="#交易明细">23.交易明细</a></li>
+                <li><a href="#版本信息">24.版本信息</a></li>
+                <li><a href="#安卓版本信息">25.安卓版本信息</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </p>
+  <h1 id="朵拉宝商家app接口文档">朵拉宝商家APP接口文档</h1>
+  <h2 id="返回码说明">返回码说明</h2>
+  <pre class="prettyprint"><code class=" hljs lasso">{
+    success:<span class="hljs-comment">当为true时说明请求成功，false时为失败</span>
+    message:<span class="hljs-comment">一般是错误信息，当 success 为 true 时，才可能为""</span>
+    token:<span class="hljs-comment">"74hksdl84xhjuyqwet", //也可能为 null</span>
+    result:<span class="hljs-comment">//接口需求的具体数据</span>
+    <span class="hljs-comment" style='color: red'>注：所有请求默认post方式，除了登录忘记密码获取验证码接口其余接口默认全部传入token
+    </span>
+}</code></pre>
+  <h3 id="登录">1.登录</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=user&a=login</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>mobile</td>
+        <td>string</td>
+        <td>手机号码</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>password</td>
+        <td>string</td>
+        <td>密码</td>
+        <td>Y</td>
+      </tr>
+       <tr>
+        <td>reg_id</td>
+        <td>string</td>
+        <td>极光推送唯一标识</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    
+}</code></pre>
+<h3 id="退出登录">2.退出登录</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=user&a=cancel</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    
+}</code></pre>
+<h3 id="忘记密码">3.忘记密码</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=user&a=memory</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>mobile</td>
+        <td>string</td>
+        <td>手机号码</td>
+        <td>Y</td>
+      </tr>
+       <tr>
+        <td>password</td>
+        <td>string</td>
+        <td>密码</td>
+        <td>Y</td>
+      </tr>
+       <tr>
+        <td>password1</td>
+        <td>string</td>
+        <td>重复密码</td>
+        <td>Y</td>
+      </tr>
+       <tr>
+        <td>code</td>
+        <td>int</td>
+        <td>验证码</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    
+}</code></pre>
+<h3 id="我的">4.我的</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=index</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    "img": null,
+    "name": "杭悦府",
+    "shenfen": "零售型商家",
+    "pay_pass": 1,//是否已设置了支付密码 1是 0否
+    "series": "12",
+    "mobile": "13221099029",
+    "referrer": "18258176761",
+    "referrer_phone": "admin1",
+    "read": 0,//1存在未读消息
+    "qr_url": "朵拉宝：杭悦府餐厅：1"//二维码数据
+}</code></pre>
+<h3 id="消息列表">5.消息列表</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=notice_list</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>page</td>
+        <td>int</td>
+        <td>分页</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      "content": "内容",
+      "create_date_time": "2016月12日"
+}</code></pre>
+<h3 id="修改头像">6.修改头像</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=up_head</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>img</td>
+        <td>file</td>
+        <td>图片</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      "url": "url",//图片url
+}</code></pre>
+<h3 id="上传极光Id">7.上传极光Id</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=up_reg</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>reg_id</td>
+        <td>string</td>
+        <td>极光推送id</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      
+}</code></pre>
+<h3 id="设置支付密码">8.设置支付密码</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=set_pay_pass</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>password</td>
+        <td>string</td>
+        <td>新密码1</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>password1</td>
+        <td>string</td>
+        <td>新密码2</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      
+}</code></pre>
+<h3 id="修改支付密码">9.修改支付密码</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=up_pay_pass</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>password</td>
+        <td>string</td>
+        <td>原密码</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>password1</td>
+        <td>string</td>
+        <td>新密码1</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>password2</td>
+        <td>string</td>
+        <td>新密码2</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      
+}</code></pre>
+<h3 id="忘记支付密码">10.忘记支付密码</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=memory</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>mobile</td>
+        <td>string</td>
+        <td>手机号码</td>
+        <td>Y</td>
+      </tr>
+       <tr>
+        <td>password</td>
+        <td>string</td>
+        <td>密码</td>
+        <td>Y</td>
+      </tr>
+       <tr>
+        <td>password1</td>
+        <td>string</td>
+        <td>重复密码</td>
+        <td>Y</td>
+      </tr>
+       <tr>
+        <td>code</td>
+        <td>int</td>
+        <td>验证码</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    
+}</code></pre>
+<h3 id="修改密码">11.修改密码</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=up_password</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>password</td>
+        <td>string</td>
+        <td>原密码</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>password1</td>
+        <td>string</td>
+        <td>新密码1</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>password2</td>
+        <td>string</td>
+        <td>新密码2</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      
+}</code></pre>
+<h3 id="我的店铺">12.我的店铺</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=me&a=sellerDetail</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      "other_name": "杭悦府餐厅",
+        "open_time": "08:00-20:00",
+        "address": "金之源大厦",
+        "phone": "13221099029",
+        "longitude": "119.987206",
+        "latitude": "30.274770",
+        "banner": [
+            {
+                "img_url": "http://img.dorabox.net/upload/image/20161214/2016121418032795845.jpg"
+            },
+            {
+                "img_url": "http://img.dorabox.net/upload/image/20161214/2016121418032795845.jpg"
+            }
+        ],
+        "series": "12",
+        "operation_title": "主营业务"
+}</code></pre>
+<h3 id="收益首页">13.收益首页</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=index</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      "today_money": 0,//今日交易额
+      "today": 0,//今日激励种子数
+      "balance": "100",//普通种子数
+      "money": 0,//可提现金额
+      "series": "24",//系数
+      "xingyun": 0,//幸运值
+      "tree": 0,//数
+      "zhongzi": 0//种子
+}</code></pre>
+<h3 id="提现数据">14.提现数据</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=cash_data</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      "money": 0,
+      "pay_pass": 0,//1已设置支付密码 0未设置
+      "yinhang": {
+            "bank_card_number": null,
+            "bank_name": null
+        }
+}</code></pre>
+<h3 id="提现记录">15.提现记录</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=cash_list</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>page</td>
+        <td>int</td>
+        <td>分页</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>int</td>
+        <td>状态（1：提现成功，2：提现失败，3：申请提醒中，4：财务审核中）</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      {
+      "cash_number": null,
+      "money": "3",
+      "memo": null,//申请提现失败原因
+      "cw_memo": null,//申请提现失败原因 (两个只能一个有值，自己取有值的那个)
+      "create_date_time": "2016-12-16 14:44"
+    }
+}</code></pre>
+<h3 id="申请提现">16.申请提现</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=apply_cash</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>money</td>
+        <td>float</td>
+        <td>提现金额（最多2位小数）</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>pay_pass</td>
+        <td>int</td>
+        <td>支付密码</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      
+}</code></pre>
+<h3 id="我的幸运树">17.我的幸运树</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=my_tree</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>page</td>
+        <td>int</td>
+        <td>分页</td>
+        <td>Y</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      "count": "100",
+      "jiashu": 0,
+      "jianshu": 0,
+      "list": [
+        {
+        "tree_count": "200",
+        "create_date_time": "2016-12-12"
+        },
+        {
+        "tree_count": "-100",
+        "create_date_time": "2016-12-12"
+        }
+      ]
+}</code></pre>
+<h3 id="回购数据">18.回购数据</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=back</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+      "putong": "100",
+      "pay_pass": 0,//1已设置支付密码 0未设置
+      "yinhang": {
+            "bank_card_number": "8888888888888",
+            "bank_name": "平安银行"
+        }
+}</code></pre>
+<h3 id="回购记录">19.回购记录</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=back_list</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr>
+        <td>page</td>
+        <td>int</td>
+        <td>分页</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>int</td>
+        <td>状态（1回购中 2回购成功 3回购失败 4财务处理中）</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+    	{
+    	"buyback_number": "20161219162850",
+    	"seed_count": "200",
+    	"seed_id": "普通种子",
+    	"buy_error": null,
+    	"create_date_time": "12-19 16:28"
+    }
+}</code></pre>
+<h3 id="申请回购">20.申请回购</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=apply_back</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr>
+        <td>number</td>
+        <td>int</td>
+        <td>回购种子数量</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>pay_pass</td>
+        <td>int</td>
+        <td>支付密码</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+    <pre class="prettyprint"><code class="hljs cs">{
+
+}</code></pre>
+<h3 id="添加银行卡">21.添加银行卡</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=add_bank_card</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>name</td>
+        <td>string</td>
+        <td>姓名</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>cardid</td>
+        <td>string</td>
+        <td>身份证</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>bank_card_number</td>
+        <td>string</td>
+        <td>银行卡号</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>bank_open_name</td>
+        <td>string</td>
+        <td>支行名称</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>bank_name</td>
+        <td>string</td>
+        <td>银行名称</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>mobile</td>
+        <td>string</td>
+        <td>手机号码</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>code</td>
+        <td>int</td>
+        <td>验证码</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    
+}</code></pre>
+<h3 id="我的种子">22.我的种子</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=my_seed</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>type</td>
+        <td>int</td>
+        <td>类别（1普通种子 4回购 5平台管理费）</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>page</td>
+        <td>int</td>
+        <td>分页</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    "count": 0,
+    "list": [
+      {
+        "seed_count": "100",
+        "seed_id": "1",
+        "create_date_time": "2016-12-20"
+      },
+      {
+        "seed_count": "-100",
+        "seed_id": "4",
+        "create_date_time": "2016-12-20"
+      }
+    ]
+}</code></pre>
+<h3 id="交易明细">23.交易明细</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=encourage&a=deal</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>search</td>
+        <td>int</td>
+        <td>类别（0全部 1今天 2近7天 3近一个月 4近3个月 5近6个月）</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>page</td>
+        <td>int</td>
+        <td>分页</td>
+        <td>Y</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    {
+    "user": "董宇飞",
+    "order_id": "201617915050587",
+    "money": "99",
+    "create_date_time": "2016-12-13 14:04:41"
+  }
+}</code></pre>
+<h3 id="版本信息">24.版本信息</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=user&a=edition</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    "new_edition": "1.1.0",
+    "logo": "http://img.dorabox.net/upload/image/20161214/2016121418032795845.jpg",
+    "list": [
+    "1 修复bug",
+    "2 更新"
+    ]
+}</code></pre>
+<h3 id="安卓版本信息">25.安卓版本信息</h3>
+    <blockquote>
+    <p>接口地址：http://seller.dorabox.net/?c=user&a=Android_edition</p>
+  </blockquote>
+  <p><strong>请求参数:</strong> </p>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>数据类型</th>
+        <th>参数说明</th>
+        <th>必传</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+  <p><strong>返回参数:</strong> <br>
+    <strong>返回参数result:</strong> </p>
+  <pre class="prettyprint"><code class=" hljs cs">{
+    "new_edition": "1.1.0",
+    "logo": "http://img.dorabox.net/upload/image/20161214/2016121418032795845.jpg",
+    "list": [
+    "1 修复bug",
+    "2 更新"
+    ]
+}</code></pre>
+</div>
+</body>
+</html>

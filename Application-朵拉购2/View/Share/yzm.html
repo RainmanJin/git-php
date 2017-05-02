@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="朵拉分享">
+    <meta name="description" content="尊敬的客户：鉴于您的尊贵身份，您的朋友XXX推荐您加入朵拉私人管家VIP俱乐部！">
+    <meta content="initial-scale=1,width=device-width, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>朵拉分享</title>
+    <link rel="stylesheet" href="share/css/base.css"/>
+    <link rel="stylesheet" href="share/css/m-common.css"/>
+    <link rel="stylesheet" href="share/css/ui-query-b.css">
+    <link rel="stylesheet" href="share/css/index.css"/>
+    <link rel="stylesheet" href="/layer/skin/layer.css" />
+</head>
+<body>
+    <h2 class="title">输入验证码</h2>
+    <p class="phone-cont">
+        我们已向
+        <span class="tel">{$Think.get.mobile}</span>
+        发送验证码短信,
+        <br/>
+        请查看短信并输入验证码
+    </p>
+    <p class="yzk">
+        <!-- <input type="text" class="phone-code k0" maxlength="1" autofocus="autofocus">
+        <input type="text" class="phone-code k1" maxlength="1" autofocus="autofocus">
+        <input type="text" class="phone-code k2" maxlength="1" autofocus="autofocus">
+        <input type="text" class="phone-code k3" maxlength="1" autofocus="autofocus">
+        <input type="text" class="phone-code k4" maxlength="1" autofocus="autofocus">
+        <input type="text" class="phone-code k5" maxlength="1" autofocus="autofocus"> -->
+    <input type="text" class="phone-code k0" maxlength="6" autofocus="autofocus" style="width: 15rem;">
+    </p>
+    <button class="btn btn-small get-code" id="J_getCode">重新获取验证码</button>
+    <button class="btn btn-small reset-code" id="J_resetCode" style="display:none;">
+        短信验证时间剩余
+        <span id="J_second">60</span>
+        秒
+    </button>
+    <!-- 提示弹框 -->
+    <!-- <div id="order">
+        <div class="order-bg"></div>
+        <div id="J_content">
+            <h2>提示</h2>
+            <p>短信可能延迟了，请再等一会儿哦!</p>
+            <button class="order-btn fh">返回</button>
+            <button class="order-btn ok" id="btnok">好的</button>
+        </div>
+    </div> -->
+    <input type='hidden' id='tj' value='{$Think.get.tj}'>
+    <input type='hidden' id='mobile' value='{$Think.get.mobile}'>
+    <script src="share/js/jquery-1.9.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
+    <script>
+    $(function(){
+        //手机号码隐藏中间四位
+        mobile = $('#mobile').val();
+        tj = $('#tj').val();
+        var tel = $('.tel').html();
+        var reg = /^(\d{3})\d{4}(\d{4})$/;
+        newtel = tel.replace(reg, "$1****$2");
+        $('.tel').html(newtel);
+        //输入一个直接跳到下一个
+        // var inputs = $('.yzk input');
+        //     for(var i = 0; i<inputs.length;i++){
+        //             var t = inputs[i];
+        //             t.index = i;
+        //             t.setAttribute("readonly", true);
+        //             t.onkeyup=function(){
+        //                 this.value=this.value.replace(/^(.).*$/,'$1');
+        //                 var next = this.index + 1;
+        //                 if(next > inputs.length - 1) return;
+        //                 inputs[next].removeAttribute("readonly");
+        //                 inputs[next].focus();
+                        
+                        
+        //             }
+        //             inputs[0].removeAttribute("readonly");
+        //  }
+        $(".phone-code").keyup(function(){ 
+            // code = $('.k0').val()+$('.k1').val()+$('.k2').val()+$('.k3').val()+$('.k4').val()+$('.k5').val();
+            code = $('.phone-code').val();
+            if(code.length == 6){
+                $.get('?c=share&a=yanzheng',{'mobile':mobile,'code':code},function(data){
+                    if(data.code==1){
+                        location.href = "?c=share&a=zc&mobile="+mobile+'&tj='+tj;
+                    }else if(data.code==0){
+                        layer.msg(data.msg);
+                    }
+                },'json');
+            }
+            
+        });
+        /*获取验证码*/
+        var isPhone = 1;
+        function getCode(e){
+            if(isPhone){
+                resetCode(); //倒计时
+            }else{
+                $('#phone').focus();
+            }
+        }
+        //倒计时
+        function resetCode(){
+            $('#J_getCode').hide();
+            $('#J_second').html('30');
+            $('#J_resetCode').show();
+            var second = 30;
+            var timer = null;
+            timer = setInterval(function(){
+                second -= 1;
+                if(second >0 ){
+                    $('#J_second').html(second);
+                }else{
+                    clearInterval(timer);
+                    $('#J_getCode').show();
+                    $('#J_resetCode').hide();
+                }
+            },1000);
+        }
+        resetCode(); //倒计时
+        $('#J_getCode').on('click',function(){
+            $.get('?c=share&a=yzm',{'mobile':mobile},function(data){
+                
+            },'json');
+            resetCode(); //倒计时
+        })
+        //弹框
+        $('#order').show();
+        $('#btnok').on('click',function(){
+            $('#order').hide();
+        })
+    })
+   </script>
+</body>
+</html>

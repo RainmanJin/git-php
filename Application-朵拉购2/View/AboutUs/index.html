@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关于我们</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth >= 640) {
+							docEl.style.fontSize = '100px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+						}
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link rel="stylesheet" type="text/css" href="AboutUs/css/aboutUs.css"/>
+	</head>
+	<body>
+		<ul class="wrap">
+			<li class="logo"><img src="AboutUs/img/logo.png"/></li>
+			<li class="txt">朵拉购是由京东商城直供发货的精选购物平台，为中国万千家庭提供优质产品与服务。我们致力于推动全民共享消费收益，让用户点点滴滴的消费获得持续的回报。</li>
+			<li class="pic"><img src="AboutUs/img/pic11_1.png"/></li>
+			<li class="QQqun">
+				<div id="QQqun">官方粉丝群QQ: 215465649</div>
+				<a id="copy" href="haleyaction://copy?copyContent=215465649">复制</a>
+			</li>
+			<li class="tel1">客服电话： <a href="haleyaction://contactUsTel?tel=0571-26289853" style="text-decoration: underline;">0571-26289853</a><span style="color: #999;">（8:30-18:00）</span></li>
+			<li class="tel2">招商电话： <a href="haleyaction://contactUsTel?tel=0571-28120878" style="text-decoration: underline;">0571-28120878</a><span style="color: #999;">（9:00-18:00）</span></li>
+		</ul>
+	</body>
+</html>

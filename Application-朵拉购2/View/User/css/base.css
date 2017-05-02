@@ -1,0 +1,85 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ul, ol, li, form, button, input, span, i, ul, a, em, img, textarea, select {
+    margin: 0;
+    padding: 0;
+}
+body, button, input, select, textarea {
+    font-family: "Microsoft YaHei",Tahoma,"Simsun",sans-serif;
+}
+html {
+    width: 100%;
+}
+body {
+    background-color: #fff;
+    font-size: 62.8%;  /*设了62.5%后就有1rem = 10px，便于用rem来指定元素的尺寸，这样响应式的时候可以直接改变font-size而无需计算其他各种样式中出现的尺寸了。 用rem定义尺寸的另一个好处是更能适应缩放／浏览器设置字体尺寸等情况（因为rem相对于字体大小，会同步改变）。*/
+    margin: 0 auto;
+    max-width: 750px;
+    min-width: 320px;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+}
+img {
+    border: medium none;
+}
+ul, ol, li {
+    list-style: outside none none;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+label, input, select {
+    vertical-align: middle;
+}
+input[type="submit"], input[type="button"], input[type="reset"] {
+    cursor: pointer;
+}
+input[type="button"], input[type="submit"], input[type="reset"], input[type="text"], select, textarea {
+    font-family: "Microsoft Yahei",Helvetica,Arial,sans-serif;
+}
+:focus {
+    outline: medium none;
+}
+textarea, select {
+    border-radius: 0;
+    resize: none;
+}
+.clearfix::before, .clearfix::after {
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.clearfix::after {
+    clear: both;
+}
+.clearfix {
+}
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+html,body {
+    -webkit-user-select:none;
+    user-select:none
+}
+* {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+     /* For some Androids,去除阴影*/
+     -webkit-text-size-adjust: none;
+} 

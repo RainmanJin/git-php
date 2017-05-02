@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!-- meta:vp-->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
+    <title>商品详情</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+    <div class="jd_layout">
+        <!-- 轮播图START -->
+        <div id="focus" class="focus">
+            <div class="hd">
+                <ul>
+                    <li class="on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+            <div class="bd">
+                <!-- <neq name='banner'> -->
+                    <volist name='banner' id='ban'>
+                        <li>
+                            <a href="#">
+                                <img src="{$ban.img_url}" />
+                            </a>
+                        </li>
+                    </volist>
+                <!-- </neq> -->
+            </div>
+        </div>
+        <!-- 第一板块图片轮播部分end -->
+        <!-- 商品名称 start-->
+        <section id="s-title">
+            <div class="main">
+                <h1>冬季孕妈加厚羽绒服防水保暖正品特价包邮正品特价包邮正品特价包邮</h1>
+            </div>
+        </section>
+        <section id="s-price">
+            <div class="item price-bar pnormal">
+                <span class="mui-price big"> <i class="mui-price-rmb">¥</i>
+                    <span class="mui-price-integer">1299.00</span>
+                    <span class="mui-price-decimal"></span>
+                </span>
+            </div>
+            <div class="item">
+                <label class="ui-label">价格</label> <del class="price-origin">¥1599.00</del>
+            </div>
+            <div class="xb">
+                <span>
+                    12 <i>系</i>
+                </span>
+
+            </div>
+        </section>
+        <section id="s-adds">
+            <div class="mui-flex" id="J_indPanel">
+                <div class="postage cell">规格：规格规格规格规格规格规格规格</div>
+                <div class="delivery cell">重量：2222.365 kg</div>
+            </div>
+        </section>
+        <!-- 商品名称 end-->
+        <!-- 商品图片 start -->
+        <div class="module-content">
+            <div class="mui-custommodule mdv-custommodule" data-mod-name="mui/mdv/zebra">
+                <div class="mui-custommodule-item">
+                    <img class="lazyImg img-ks-lazyload" alt="" src="images/2.jpg"></div>
+
+                <div class="mui-custommodule-item">
+                    <img class="lazyImg img-ks-lazyload" alt="" src="images/2.jpg"></div>
+            </div>
+        </div>
+        <!-- 商品图片 end -->
+        <!-- 底部 start -->
+        <section id="s-actionBar-container">
+            <div class="btn-pic">
+                <img src="images/btn_lj.png" alt=""></div>
+        </section>
+        <!-- 弹出框 -->
+        <div class="ui-notice clearfix">
+            <div class="ui-notice-close">
+                <div class="ui-close-one">
+                    <img src="images/icon-close.png"></div>
+                <div class="download-logo">
+                    <img src="images/icon-logo.png"></div>
+                <div class="download-txt">
+                    <span class="download-content"> <em class="content-up">朵拉购</em>
+                        <br> <em class="content-down">用朵拉购买单,最高节省99%</em>
+                    </span>
+                </div>
+                <div class="download-action">
+                    <span class="font-large">立即打开</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/TouchSlide.1.1.js"></script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        TouchSlide({ 
+            slideCell:"#focus",
+            titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+            mainCell:".bd ul", 
+            effect:"leftLoop", 
+            autoPlay:true,//自动播放
+            autoPage:true,//自动分页
+            // delayTime:3000
+        });
+
+    </script>
+    <script>
+        
+            $('.ui-close-one').on('click',function(){
+                $('.ui-notice').hide();
+            })            
+       
+    </script>
+</body>
+</html>

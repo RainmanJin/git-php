@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新人礼包</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="redpacket/css/index.css"/>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth >= 640) {
+							docEl.style.fontSize = '100px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+						}
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="title">
+				<img src="redpacket/img/1_title.png"/>
+			</div>
+			<div class="msg">
+				<div class="msg_img">
+					
+					<img src=<?php echo ($user['avatar_img'])?($user['avatar_img']):"redpacket/img/1_touxiang.png"; ?> />
+				</div>
+				<div class="msg_content">
+					<span id="msg_name">{$user['realname']}</span>&nbsp;<span>偷偷给你塞了个红包</span>
+				</div>
+			</div>
+			<div class="redPacket">
+				<img src="redpacket/img/1_hongbao.png" class="redPacket_img1"/>
+				<a href="http://test.dorabox.net/?c=redpacket&a=getPacket&mobile={$Think.get.mobile}"><img src="redpacket/img/1_chai.png" id="redPacket_chai"/></a>
+			</div>
+			<div class="redPacketShadow">
+				<img src="redpacket/img/1_hongbaoShadow.png" class="redPacket_img2"/>
+			</div>
+		</div>
+	</body>
+	<script src="redpacket/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+</html>

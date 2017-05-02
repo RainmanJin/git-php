@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="Author" content="如何获得幸运树？" />
+    <meta name="keywords" content="如何获得幸运树？" />
+    <meta name="description" content="如何获得幸运树？" />
+    <title>回购为什么不成功?</title>
+    <!-- 固定的JS文件说明 -->
+    <script type="text/javascript">
+    new function (){
+        var _self = this;
+        _self.width = 768;//设置默认最大宽度
+        _self.fontSize = 100;//默认字体大小
+        _self.widthProportion = function(){
+            var p = (document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+            return p>1?1:p<0.4?0.5:p;
+        };//判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+        _self.changePage = function(){
+            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+        }//修改根元素html的font-size的植
+        _self.changePage();
+        window.addEventListener('resize',function(){
+            _self.changePage();
+        },false);//侦听屏幕宽度变化
+    };
+</script>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="help_content">
+        <h1>回购为什么不成功?</h1>
+        <p>
+            回购需要填写正确的储蓄卡银行卡信息和身份证信息,尤 
+            其是银行卡开户行支行名称必须正确 ,否则无法回购成功。
+            开户行支行名称可以咨询银行客服或在网上银行上查询。
+        </p>
+    </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/TouchSlide.1.1.js"></script>
+</body>
+</html>

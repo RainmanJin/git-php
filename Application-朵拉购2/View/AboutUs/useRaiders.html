@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>朵拉购使用攻略</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			new function (){
+		        var _self = this;
+		        _self.width = 768;//设置默认最大宽度
+		        _self.fontSize = 100;//默认字体大小
+		        _self.widthProportion = function(){
+		            var p = (document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+		            return p>1?1:p<0.4?0.5:p;
+		        };//判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+		        _self.changePage = function(){
+		            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+		        }//修改根元素html的font-size的植
+		        _self.changePage();
+		        window.addEventListener('resize',function(){
+		            _self.changePage();
+		        },false);//侦听屏幕宽度变化
+		    };
+		</script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.wrap {
+				width: 92%;
+				margin: 0 auto;
+				background-color: white;
+				padding-bottom: 0.5rem;
+			}
+			.wrap img {
+				display: block;
+				width: 100%;
+				margin-top: 0.3rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<img src="AboutUs/img/pic1_1.png"/>
+			<img src="AboutUs/img/pic2_1.png"/>
+			<img src="AboutUs/img/pic3_1.png"/>
+			<img src="AboutUs/img/pic4_1.png"/>
+			<img src="AboutUs/img/pic5_1.png"/>
+			<img src="AboutUs/img/pic6_1.png"/>
+		</div>
+	</body>
+</html>

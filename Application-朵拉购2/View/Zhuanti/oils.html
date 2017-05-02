@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>天天特价</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="zhuanti/css/oils.css"/>
+		<script type="text/javascript">
+			new function (){
+		        var _self = this;
+		        _self.width = 768;//设置默认最大宽度
+		        _self.fontSize = 100;//默认字体大小
+		        _self.widthProportion = function(){
+		            var p = (document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+		            return p>1?1:p<0.4?0.5:p;
+		        };//判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+		        _self.changePage = function(){
+		            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+		        }//修改根元素html的font-size的植
+		        _self.changePage();
+		        window.addEventListener('resize',function(){
+		            _self.changePage();
+		        },false);//侦听屏幕宽度变化
+		    };
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="banner" id="backTop">
+				<img src="zhuanti/img/banner_oils.png"/>
+			</div>
+			<div class="products">
+				<!--大米-->
+				<div class="splitLine">
+					<img src="zhuanti/img/rice.png"/>
+				</div>
+				<ul class="rice">
+				<volist name='dm' id='data'>
+					<a href="haleyaction://productDetail?product_id={$data.product_id}">
+						<li>
+							<div class="li_left">
+								<img src="{$data.thumb_url}"/>
+							</div>
+							<div class="li_right">
+								<div class="products_name">
+									{$data.title} 
+								</div>
+								<div class="products_price">
+									<div class="current_price">￥<span id="current_price">{$data.discount_price}</span></div>
+									<div class="original_price">
+										<del>价格￥<span id="original_price">{$data.price}</span></del>
+									</div>
+								</div>
+							</div>
+						</li>
+					</a>
+				</volist>	
+				</ul>
+				<!--食用油-->
+				<div class="splitLine">
+					<img src="zhuanti/img/edible_oil.png"/>
+				</div>
+				<ul class="edible_oil">
+				<volist name='syy' id='data'>
+					<a href="haleyaction://productDetail?product_id={$data.product_id}">
+						<li>
+							<div class="li_left">
+								<img src="{$data.thumb_url}"/>
+							</div>
+							<div class="li_right">
+								<div class="products_name">
+									{$data.title}
+								</div>
+								<div class="products_price">
+									<div class="current_price">￥<span id="current_price">{$data.discount_price}</span></div>
+									<div class="original_price">
+										<del>价格￥<span id="original_price">{$data.price}</span></del>
+									</div>
+								</div>
+							</div>
+						</li>
+					</a>
+				</volist>	
+				</ul>
+				<!--五谷杂粮-->
+				<div class="splitLine">
+					<img src="zhuanti/img/cereals.png"/>
+				</div>
+				<ul class="cereals">
+				<volist name='wgzl' id='data'>
+					<a href="haleyaction://productDetail?product_id={$data.product_id}">
+						<li>
+							<div class="li_left">
+								<img src="{$data.thumb_url}"/>
+							</div>
+							<div class="li_right">
+								<div class="products_name">
+									{$data.title} 
+								</div>
+								<div class="products_price">
+									<div class="current_price">￥<span id="current_price">{$data.discount_price}</span></div>
+									<div class="original_price">
+										<del>价格￥<span id="original_price">{$data.price}</span></del>
+									</div>
+								</div>
+							</div>
+						</li>
+					</a>
+				</volist>	
+				</ul>
+			</div>
+			<div class="backTop" style="display: none;">
+				<a href="#backTop"><img src="zhuanti/img/jiantou.png" /></a>
+			</div>
+		</div>
+	</body>
+	<script src="zhuanti/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="zhuanti/js/jquery.scrollTo.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(window).scroll(function(){
+			    var sTop = $('#backTop').offset().top-$(document).scrollTop();
+			    if (sTop < 0) {
+			    	$(".backTop").css("display","block");
+			    }
+			    if (sTop == 0) {
+			    	$(".backTop").css("display","none");
+			    }
+			})
+			$(".backTop a").on("click",function(){
+				//页面平滑滚动到指定位置		
+				var target = $(this).attr("href");
+				$('body').scrollTo(target, 800,{offset: 0});
+			})
+		})
+	</script>
+</html>

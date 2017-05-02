@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="朵拉分享">
+    <meta name="description" content="尊敬的客户：鉴于您的尊贵身份，您的朋友XXX推荐您加入朵拉私人管家VIP俱乐部！">
+    <meta content="initial-scale=1,width=device-width, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>朵拉分享</title>
+    <link rel="stylesheet" href="share/css/base.css"/>
+    <link rel="stylesheet" href="share/css/m-common.css"/>
+    <link rel="stylesheet" href="share/css/ui-query-b.css">
+    <link rel="stylesheet" href="share/css/index.css"/>
+    <link rel="stylesheet" href="/layer/skin/layer.css" />
+</head>
+<body>
+    <div class="wrap">
+        <dl>
+            <label>姓名</label>
+            <input type="text" id='name' placeholder="请输入您的真实姓名"></dl>
+        <dl>
+            <label>登录密码</label>
+            <input type="text" id='password' placeholder="请设置您的登录密码"></dl>
+        <button class="end-btn">
+            <a href="#" class="end-btn-sure">完成</a>
+        </button>
+    </div>
+    <p class="tyxy-btn">
+        <span class=""> <b></b> <i>同意</i>
+        </span>
+        <a href="#">《朵拉购服务协议》</a>
+    </p>
+    <input type="hidden" id="mobile" value='{$Think.get.mobile}'>
+    <input type="hidden" id="t_mobile" value='{$Think.get.mobile}'>
+    <script src="share/js/jquery-1.9.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
+    <script>
+        //同意协议选择
+        $('.tyxy-btn span').on('click',function(){
+            if($(this).hasClass('selec')){
+                $(this).removeClass('selec');
+            }else{
+                $(this).addClass('selec');
+            }
+        })
+        $('.end-btn').on('click',function(){
+            var t_mobile = $('#tj').val();
+            var xieyi = $('.tyxy-btn span').attr('class');
+            var mobile = $('#mobile').val();
+            var name = $('#name').val();
+            var password = $('#password').val();
+            if(!name){
+                layer.msg('请输入您的真实姓名');
+                return false;
+            }
+            if(name.length > 6){
+                layer.msg('请输入正确的姓名');
+                return false;
+            }
+            if(!mobile){
+                layer.msg('无手机号码，注册失败');
+                return false;
+            }
+            if(!password){
+                layer.msg('请设置您的登录密码');
+                return false;
+            }
+            if(!xieyi){
+                layer.msg('请同意朵拉购注册协议');
+                return false;
+            }
+            $.post('?c=share&a=zhuce',{'t_mobile':t_mobile,'name':name,'mobile':mobile,'password':password},function(data){
+                if(data.code==1){
+                    location.href = "?c=user&a=succful";
+                }else if(data.code==0){
+                    layer.msg(data.msg);
+                }
+            },'json');
+        })
+        
+    </script>
+</body>
+</html>

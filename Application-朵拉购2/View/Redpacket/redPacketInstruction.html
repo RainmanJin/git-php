@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>红包说明</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			new function (){
+		        var _self = this;
+		        _self.width = 768;//设置默认最大宽度
+		        _self.fontSize = 100;//默认字体大小
+		        _self.widthProportion = function(){
+		            var p = (document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+		            return p>1?1:p<0.4?0.5:p;
+		        };//判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+		        _self.changePage = function(){
+		            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+		        }//修改根元素html的font-size的植
+		        _self.changePage();
+		        window.addEventListener('resize',function(){
+		            _self.changePage();
+		        },false);//侦听屏幕宽度变化
+		    };
+		</script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			ul {
+				width: 85%;
+				margin: 0 auto;
+				/*padding-top: 0.8rem;*/
+			}
+			li {
+				list-style: none;
+				font-size: 0.28rem;
+				margin-bottom: 0.22rem;
+				line-height: 0.48rem;
+				color: #666;
+			}
+			h1 {
+				height: 1rem;
+				line-height: 1rem;
+				border-bottom: 1px solid #d9d9d9;
+				font-size: 0.3rem;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="wrap">
+			<h1>红包说明</h1>
+			<li style="padding-top: 0.22rem;">1 . 红包只用于购物消费，不计息、不提现、不转让。</li>
+			<li>2 . 红包不可叠加使用，每个订单仅限使用1个红包。</li>
+			<li>3 . 用户获取红包的过程中严禁作弊，一经发现作弊行为，
+朵拉购有权取消红包。</li>
+			<li>4 . 每个红包在有效期内仅可使用1次。</li>
+			<li>5 . 使用红包的订单发生退款时，红包部分不能申请退款，
+实际退款将按照比例减掉红包金额。</li>
+			<li>6 . 红包按照最新减免规则使用。</li>
+			<li>7 . 最终解释权归浙江朵宝网络科技有限公司所有，有任
+何疑问可咨询在线客服</li>
+		</ul>
+	</body>
+</html>

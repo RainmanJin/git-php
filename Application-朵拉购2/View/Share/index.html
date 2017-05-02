@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="朵拉分享">
+    <meta name="description" content="尊敬的客户：鉴于您的尊贵身份，您的朋友{$name}推荐您加入朵拉私人管家VIP俱乐部！">
+    <meta content="initial-scale=1,width=device-width, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>朵拉分享</title>
+    <link rel="stylesheet" href="share/css/base.css"/>
+    <link rel="stylesheet" href="share/css/m-common.css"/>
+    <link rel="stylesheet" href="share/css/ui-query-b.css">
+    <link rel="stylesheet" href="share/css/index.css"/>
+    <link rel="stylesheet" href="/layer/skin/layer.css" />
+</head>
+<body>
+    <div class="charPic01">
+        <img src="share/images/charPic01.jpg" alt="">
+        <div class="phoneInput">
+            <!-- <label>输入手机号:</label> -->
+            <input class='mobile' type="text" value="" placeholder="请输入您的手机号"></div>
+        <button  class="lingqu zhuce">
+        </button>
+    </div>
+    <div class="charPic02">
+        <img src="share/images/charPic02.jpg" alt=""></div>
+    <div class="charPic03">
+        <img src="share/images/charPic03.jpg" alt=""></div>
+    <div class="info" style="display: none;">
+        <div class="infoPic01">
+            <img src="share/images/index.jpg"></div>
+        <!-- <div class="infoPic02">
+            <img src="share/images/infoPic02.jpg"></div>
+        <div class="infoPic03">
+            <img src="share/images/infoPic03.jpg"></div> -->
+        <!-- <div class="infoPic04">
+            <img src="share/images/infoPic04.jpg"></div> -->
+        <div class="infoPic05">
+            <!-- <img src="share/images/infoPic05.jpg"> -->
+            <div class="phoneInput1">
+            <!-- <label>输入手机号:</label> -->
+            <input class='mobile' type="text" value="" placeholder="请输入您的手机号"></div>
+            <button class="zhuce"></button>
+            <!-- <a href='?c=share&a=phonezc&mobile={$Think.get.mobile}'><button class="zhuce"></button></a> -->
+        </div>
+    </div>
+    <script src="share/js/jquery-1.9.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
+    <script>
+    $(function(){
+        $('.charPic03').on('click',function(){
+            $('.info').toggle();
+            n = 500;
+             for (I=n; I>=1; I--){
+            window.scrollBy(0,+1);  
+            }
+        })
+        $('.zhuce').on('click',function(){
+            var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            mobile = $('.mobile').val();
+            if(!mobile){
+                layer.msg('请输入您的手机号');
+                return false;
+            }
+            if(!myreg.test(mobile)){
+                layer.msg('请输入正确的手机号码');
+                return false;
+            }
+            $.post('?c=share&a=check_user',{'mobile':mobile},function(data){
+                if(data.code==1){
+                    window.location.href="http://test.dorabox.net/?c=share&a=yzm&tj={$Think.get.mobile}&mobile="+mobile;
+                }else if(data.code==0){
+                    layer.msg(data.msg);
+                }
+            },'json');
+            
+        })
+    })
+   </script>
+
+</body>
+</html>

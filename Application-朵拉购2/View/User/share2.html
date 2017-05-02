@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="Author" content="朵拉购" />
+    <meta name="keywords" content="朵拉购" />
+    <meta name="description" content="朵拉购" />
+    <title>分享</title>
+    <!-- 固定的JS文件说明 -->
+    <script type="text/javascript">
+    new function (){
+        var _self = this;
+        _self.width = 750;//设置默认最大宽度
+        _self.fontSize = 100;//默认字体大小
+        _self.widthProportion = function(){
+            var p = (document.body&&document.body.clientWidth||document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+            return p>1?1:p<0.4?0.5:p;
+        };//判断当前屏幕尺寸，设置的最大屏幕宽度之间的比例
+        _self.changePage = function(){
+            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+        }//修改根元素html的font-size的植
+        _self.changePage();
+        window.addEventListener('resize',function(){
+            _self.changePage();
+        },false);//侦听屏幕宽度变化
+    };
+</script>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+</head>
+<body style="background-image: url(images/wrap_bg.png); background-size: 100% 100%;">
+    <div class="wrap">
+        <div class="wrap-box">
+            <div class="title">
+                <h2>
+                    <img src="images/title_icon.png" alt="朵拉购"></h2>
+            </div>
+            <div class="content">
+                <div class="content-box">
+                    <p>
+                        朵拉购是朵宝科技旗下的精选购物平台，以“爱生活，爱朵拉”为理念，为中国家庭提供安全、健康的产品和品质生活服务。资深选品员深入一线寻找优质商家资源入驻平台，商家将营业额的固定比例让利到平台，平台将让利进行二次分配，消费者在平台进行日常的点滴消费，最高累计可获得消费额99%的激励，同时平台将让利的固定比例投资给平台供应链，助力研发投入和转型升级，依托国家供给侧改革政策，增强国产品牌竞争力，为消费者提供更好的产品和服务，形成持续、高效的新零售模式。
+                    </p>
+                </div>
+            </div>
+            <div class="zc-box">
+                <button class="zc-btn">立即注册</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+<script language=javascript>
+$('.zc-btn').on('click',function(){
+    window.location.href="http://bao.dorabox.net/?c=user&a=h_registered&mobile={$Think.get.mobile}";
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <meta name="format-detection" content="email=no" />
+	    <meta name="format-detection" content="telephone=no" />
+         <style>
+        .wkit-toast{
+            display: none;
+        }
+        </style>
+		</head>
+        <body>
+            <div id="J_demo" style="width:300px;height:300px;"></div>
+        </body>
+        <!-- IE8及以下支持JSON -->
+        <!--[if lt IE 9]>
+            <script src="https://g.alicdn.com/aliww/ww/json/json.js" charset="utf-8"></script>
+        <![endif]-->
+        <!-- 自动适配移动端与pc端 -->
+        <script src="https://g.alicdn.com/aliww/??h5.imsdk/2.1.0/scripts/yw/wsdk.js,h5.openim.kit/0.3.7/scripts/kit.js" charset="utf-8"></script>
+        <script>
+            window.onload = function(){
+                WKIT.init({
+                    uid: '{$uid}',
+                    appkey: {$appkey},
+                    credential: '{$credential}',
+                    touid: '{$name}',
+                    themeBgColor: '#ff5600',
+                    avatar:'{$url}',
+                    welcomeMsg: false,
+                    hideLoginSuccess: true,
+                    titleBar: false,
+                    themeColor:'#ffffff',
+                    // title:'标题',
+					sendMsgToCustomService: true,
+					
+                });
+            }
+        </script>
+    </html>

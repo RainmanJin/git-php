@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新人礼包</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="redpacket/css/getPacket.css"/>
+		<!-- <link rel="stylesheet" href="/layer/skin/layer.css" /> -->
+		<!-- <script src="/layer/layer.js"></script> -->
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth >= 640) {
+							docEl.style.fontSize = '100px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+						}
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="wrap_top">
+				<div class="redPacket">
+					<img src="redpacket/img/2_hongbao.png" class="redPacket_img1"/>
+					<p id="redPacket_money"><span style="font-weight: 600">{$money[0]['money']}</span>&nbsp;<span style="font-size: 0.5rem">元</span></p>
+					<input type="hidden" name="" id="hb_id" value="{$money[0]['id']}">
+					<input type="number" name="" id="phoneNum" value="" placeholder="请输入手机号"/>
+					<p class="console" style="visibility: hidden;">提示：请输入正确的手机号</p>
+					<div class="get_code">
+						<input type="number" id="code" value="" placeholder="请输入验证码"/>
+						<button id="get_code">获取验证码</button>
+					</div>
+					<p class="console2" style="visibility: hidden;">提示：验证码错误!</p>
+					<p id="getAndUse">立即领取并使用</p>
+					<div class="popup4" style="display: none;">
+						<img src="redpacket/img/2_popup4.png"/>
+					</div>
+				</div>
+			</div>
+			<div class="wrap_middle">
+				<div class="title2">
+					<img src="redpacket/img/2_title.png"/>
+				</div>
+				<div class="title3">
+					<img src="redpacket/img/2_title2.png"/>
+				</div>
+				<div class="product">
+					<switch name="money[0]['money']" >
+						<case value="5"><img src="redpacket/img/2_5yuan.png" class="$_5"/></case>
+						<case value="10"><img src="redpacket/img/2_10yuan.png" class="$_10"/></case>
+						<case value="20"><img src="redpacket/img/2_20yuan.png" class="$_20"/></case>
+						<case value="50"><img src="redpacket/img/2_50yuan.png" class="$_50"/></case>
+						<case value="100"><img src="redpacket/img/2_100yuan.png" class="$_100"/></case>
+						<default /><img src="redpacket/img/2_500yuan.png" class="$_500"/>
+					</switch>
+				</div>
+			</div>
+			<div class="wrap_bottom">
+				<div class="rule">
+					<h2>活动规则</h2>
+					<p>1. 活动仅限于通过本页面注册、下载朵拉购App</p>
+					<p>2. 活动日期：2017年3月22日-2017年6月30日</p>
+					<p>3. 所赠红包可购买任一商品，具体内容详见红包规则说明</p>
+					<p>4. 活动为朵拉购APP新人专享（新用户是指未在朵拉购下单过   的用户）；老用户可以直接下载朵拉购APP，并登录后进入“我的推荐”，邀请1名新用户即可领取好礼</p>
+					<p>5. 同一个手机号视为同一个用户，商品差价由朵拉购APP平台补贴,每人仅限参与一次。严禁作弊，一经发现，取消活动资格</p>
+					<p>6. 活动红包只用于购物消费，不计息、不提现、不转让，红包逾期，将取消购物抵用资格</p>
+					<p>7. 活动最终解释权归朵拉购所有，有任何疑问可在线咨询朵拉购客服</p>
+				</div>
+			</div>
+			<!--弹窗-->
+			<!--邀请-->
+			<div class="popup1" style="display: none;">
+				<img src="redpacket/img/2_popup1.png"/>
+				<div class="invitation" onClick="jump()">邀请好友 立刻赚钱</div>
+			</div>
+			<!--分享-->
+			<div class="popup2" style="display: none;">
+				<img src="redpacket/img/2_popup2.png"/>
+				<div class="share" onClick="jump1()">去APP分享</div>
+			</div>
+			<div class="popup3" style="display: none;">
+				<img src="redpacket/img/2_popup3.png"/>
+				<div class="share_xr" onClick="jump2()">分享给新人</div>
+			</div>
+			<div class="popupBg" style="display: none;"></div>
+		</div>
+	</body>
+	<script src="redpacket/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="redpacket/js/getPacket.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+    $(function(){
+        // $('.charPic03').on('click',function(){
+        //     $('.info').toggle();
+        //     n = 500;
+        //      for (I=n; I>=1; I--){
+        //     window.scrollBy(0,+1);  
+        //     }
+        // })
+        $(".popupBg").on("click", function() {
+        	$(".popup1").css("display", "none");
+        	$(".popup2").css("display", "none");
+        	$(".popup3").css("display", "none");
+        	$(this).css("display", "none");
+        })
+
+	//倒计时
+	var wait = 60;
+	function time(btn) {
+		if(wait == 0) {
+			btn.css("background-color", "#ffd65a").css("color", "#e8324d").html("获取验证码");
+			btn.removeAttr("disabled");
+			wait = 10;
+		} else {
+			btn.css("background-color", "#ddd").css("color", "#888").css("disabled", "true").html(wait + "s");
+			btn.attr("disabled", "true");
+			wait--;
+			setTimeout(function() {
+				time(btn);				
+			}, 1000);
+		}
+	}
+	$('#get_code').on('click',function(){
+		var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+		mobiles = $('#phoneNum').val();
+		if(!mobiles){
+                // layer.msg('请输入您的手机号');
+                $(".console").css("visibility","visible").html("提示：请输入手机号!");               
+                return false;
+            }
+            if(!myreg.test(mobiles)){
+                // layer.msg('请输入正确的手机号码');  
+                $(".console").css("visibility","visible").html("提示：请输入正确的手机号!");           
+                return false;
+            }
+            $(".console").css("visibility","hidden");
+            
+            $.get('?c=user&a=getCode2',{'mobile':mobiles},function(data){
+            	if(data.code==1){
+            		time($("#get_code"));
+            	}else if(data.code==2){
+                //老用户直接弹提醒
+                $(".popup3").css("display","block");
+    			$(".popupBg").css("display","block"); 
+            }
+        },'json');
+    })
+})
+
+    $(function(){    	
+    	$('#getAndUse').on('click',function(){
+    		var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            mobiles = $('#phoneNum').val();
+            if(!mobiles){
+                // layer.msg('请输入您的手机号');
+                $(".console").css("visibility","visible").html("提示：请输入手机号!");               
+                return false;
+            }
+            if(!myreg.test(mobiles)){
+                // layer.msg('请输入正确的手机号码');  
+                $(".console").css("visibility","visible").html("提示：请输入正确的手机号!");           
+                return false;
+            }
+
+    		var mobiles = $('#phoneNum').val();
+	    	var yzm=$('#code').val();
+	    	var tj={$Think.get.mobile};
+	    	var hb_id=$('#hb_id').val();
+    		$.get('?c=redpacket&a=check',{'mobiles':mobiles,'yzm':yzm,'mobile':tj,'hb_id':hb_id},function(data){
+    			if(data.code==3){
+    				$(".console2").css("visibility","visible"); 	
+    			}else if(data.code==0){
+    				//不能邀请自己
+    				$(".popup1").css("display","block");
+    				$(".popupBg").css("display","block");   				
+    			}else if(data.code==1){
+    				//你已经领取红包了
+    				$(".popup2").css("display","block");
+    				$(".popupBg").css("display","block");  
+    			}else if(data.code==2){
+    				//领取成功
+    				$(".popup4").css("display","block");
+    				setTimeout(function(){
+    					window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.duolabao";
+    					$(".popup4").css("display","none");
+    				},3000)	
+    			}
+    		},'json');
+    	})
+    })
+
+    function jump(){
+    	wwindow.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.duolabao";
+    	$(".popup1").css("display", "none");
+        $(".popup2").css("display", "none");
+        $(".popup3").css("display", "none");
+        $(".popupBg").css("display", "none");
+    }
+    function jump1(){
+    	window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.duolabao";
+    	$(".popup1").css("display", "none");
+        $(".popup2").css("display", "none");
+        $(".popup3").css("display", "none");
+        $(".popupBg").css("display", "none");    	
+    }
+    function jump2(){
+    	window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.duolabao";
+    	$(".popup1").css("display", "none");
+        $(".popup2").css("display", "none");
+        $(".popup3").css("display", "none");
+        $(".popupBg").css("display", "none");  
+    }
+   </script>
+
+</html>
